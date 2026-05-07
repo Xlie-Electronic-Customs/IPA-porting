@@ -1,2 +1,30 @@
 # IPA-porting
 Guide how to port IPA driver from downstream kernel source code to mainline
+
+```
+Downstream  |   Mainline
+
+    Q6      -   MODEM
+    CMD     -   COMMAND
+    PROD    -   TX
+    CONS    -   RX
+    WAN     -   AP
+
+Mainline                        |      Downstream
+
+IPA_ENDPOINT_AP_COMMAND_TX      - IPA_CLIENT_APPS_CMD_PROD
+IPA_ENDPOINT_AP_LAN_RX          - IPA_CLIENT_APPS_LAN_CONS
+IPA_ENDPOINT_AP_MODEM_TX        - IPA_CLIENT_APPS_WAN_PROD
+IPA_ENDPOINT_AP_MODEM_RX        - IPA_CLIENT_APPS_WAN_CONS
+IPA_ENDPOINT_MODEM_COMMAND_TX   - IPA_CLIENT_Q6_CMD_PROD
+IPA_ENDPOINT_MODEM_LAN_TX       - IPA_CLIENT_Q6_LAN_PROD
+IPA_ENDPOINT_MODEM_LAN_RX       - IPA_CLIENT_Q6_LAN_CONS
+IPA_ENDPOINT_MODEM_AP_TX        - IPA_CLIENT_Q6_WAN_PROD
+IPA_ENDPOINT_MODEM_AP_RX        - IPA_CLIENT_Q6_WAN_CONS
+IPA_ENDPOINT_MODEM_DL_NLO_TX    - IPA_CLIENT_Q6_DL_NLO_DATA_PROD
+
+Mainline  |  Downstream
+
+IPA_EE_Q6 - GSI_EE_MODEM
+IPA_EE_AP - GSI_EE_AP
+```
