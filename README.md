@@ -9,7 +9,7 @@ Downstream  |   Mainline
     PROD    -   TX
     CONS    -   RX
     WAN     -   AP
-  ENDPOINT  -   CLIENT 
+   CLIENT   -   ENDPOINT
 
 Mainline                        |      Downstream
 
